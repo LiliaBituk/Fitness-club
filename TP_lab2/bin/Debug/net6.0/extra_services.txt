@@ -1,0 +1,4 @@
+tarif,group_trainings,massage
+базовый,false,false
+продвинутый,true,false
+максимальный,true,true

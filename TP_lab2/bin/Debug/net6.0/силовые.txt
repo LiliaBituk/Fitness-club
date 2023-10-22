@@ -1,0 +1,6 @@
+subcategory,available,total
+body_sculpt,15,30
+lower_body,30,30
+upper_body,27,30
+abs,19,30
+body_pump,13,30

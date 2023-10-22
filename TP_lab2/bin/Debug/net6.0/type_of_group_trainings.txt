@@ -1,0 +1,6 @@
+category,subcategorys
+низкоинтенсивные,pilates,fitball,stretching,yoga,bodyflex
+аэробные,aerobic,step_aerobic,kickboxing,aqua_fitness,cycling
+танцевальные,Zumba,Belly_Dance,Pole_Dance,Hip_hop,Twerk
+смешанные,circuit_training,functional_training,TRX,CrossFit,full_body
+силовые,body_sculpt,lower_body,upper_body,abs,body_pump

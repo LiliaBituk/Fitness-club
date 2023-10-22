@@ -1,0 +1,6 @@
+subcategory,available,total
+pilates,20,20
+fitball,15,20
+stretching,7,10
+yoga,10,10
+bodyflex,7,10

@@ -1,0 +1,6 @@
+subcategory,available,total
+Zumba,5,10
+Belly_Dance,10,10
+Pole_Dance,4,8
+Hip_hop,20,30
+Twerk,15,15

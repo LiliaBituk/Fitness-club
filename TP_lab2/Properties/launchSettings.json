@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TP_lab2": {
+      "commandName": "Project",
+      "commandLineArgs": "price_of_tarifs months extra_services"
+    }
+  }
+}
