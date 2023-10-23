@@ -42,34 +42,37 @@
 
         public List<string> ChoosingGroupTrainings(List<string> dataEnteredByUser)
         {
-            GroupTrainings groupTrainings = new GroupTrainings();
-            groupTrainings.LoadGroupTrainingsTypesFromFile("type_of_group_trainings");
-            groupTrainings.LoadTimeOfGroupTrainingsFromFile("available_time");
+            GroupTrainingsInformation info = new GroupTrainingsInformation();
+            GroupTrainingsUserInteraction userInteraction = new GroupTrainingsUserInteraction();
 
             while (true)
             {
-                if (groupTrainings.GetNeedForGroupTraining())
+                if (userInteraction.GetNeedForGroupTraining())
                 {
                     //Вывод типов групповых тренировок
-                    groupTrainings.OutputTypeOfGroupTrainings();
+                    userInteraction.OutputTypeOfGroupTrainings();
 
                     //Получить от пользователя тип групповой тренировки
-                    string selectedGroupTraining = groupTrainings.GetSelectedGroupTrainingInput();
+                    string selectedGroupTraining = userInteraction.GetSelectedGroupTrainingInput();
+
+                    //SelectedGroupTrainingInfo selectedGroupTrainingInfo = new SelectedGroupTrainingInfo($"{selectedGroupTraining}.txt");
+
+                    SelectedGroupTrainUserInteraction selectedGroupTrainInteraction = new SelectedGroupTrainUserInteraction();
 
                     //Вывод доступного времени для выбранного типа тренировки
-                    groupTrainings.OutputTimeOfGroupTrainings(selectedGroupTraining);
+                    userInteraction.OutputTimeOfGroupTrainings(selectedGroupTraining);
 
                     //Получить от пользователя времени тренирвки
-                    string timeOfSelectedTraining = groupTrainings.GetSelectedTimeInput(selectedGroupTraining);
+                    string timeOfSelectedTraining = userInteraction.GetSelectedTimeInput(selectedGroupTraining);
 
-                    //Чтение из файла кол-во свободных мест для выбранной тренировки
-                    groupTrainings.LoadVacantPlacesOfSelectedTrainingFromFile(selectedGroupTraining);
+                    ////Чтение из файла кол-во свободных мест для выбранной тренировки
+                    //selectedGroupTrainingInfo.LoadVacantPlacesOfSelectedTrainingFromFile(selectedGroupTraining);
 
                     //Вывод кол-во свободных мест для выбранной тренировки
-                    groupTrainings.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);
+                    selectedGroupTrainInteraction.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);
 
                     //Получить от пользователя подтип групповой тренировки
-                    string selectedSubtype = groupTrainings.GetSelectedSubtypeInput(selectedGroupTraining);
+                    string selectedSubtype = selectedGroupTrainInteraction.GetSelectedSubtypeInput(selectedGroupTraining);
 
                     dataEnteredByUser.Add(selectedSubtype);
                     dataEnteredByUser.Add(timeOfSelectedTraining);
@@ -88,16 +91,17 @@
 
         public List<string> ChoosingMassage(List<string> dataEnteredByUser)
         {
-            Massage massage = new Massage();
+            MassageReader reader = new MassageReader();
+            MassageUserInteraction userInteraction = new MassageUserInteraction();
 
-            if (massage.GetNeedForMassage())
+            if (userInteraction.GetNeedForMassage())
             {
                 //Чтение из файла видов массажа
-                massage.LoadMassageTypesFromFile("massage");
+                reader.LoadMassageTypesFromFile("massage.txt");
                 //Вывод видов массажа
-                massage.OutputTypesOfMassage();
+                userInteraction.OutputTypesOfMassage();
                 //Получить от пользователя выбранный вид массажа
-                string selectedTypeOfMassage = massage.GetSelectedMassageInput();
+                string selectedTypeOfMassage = userInteraction.GetSelectedMassageInput();
                 dataEnteredByUser.Add(selectedTypeOfMassage);
             }
             else { dataEnteredByUser.Add("-"); }

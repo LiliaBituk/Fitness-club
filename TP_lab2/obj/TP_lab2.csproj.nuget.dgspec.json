@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lilia\\source\\repos\\TP_lab2\\TP_lab2\\TP_lab2.csproj": {}
+    "C:\\Users\\lilia\\TP_lab2\\TP_lab2\\TP_lab2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lilia\\source\\repos\\TP_lab2\\TP_lab2\\TP_lab2.csproj": {
+    "C:\\Users\\lilia\\TP_lab2\\TP_lab2\\TP_lab2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lilia\\source\\repos\\TP_lab2\\TP_lab2\\TP_lab2.csproj",
+        "projectUniqueName": "C:\\Users\\lilia\\TP_lab2\\TP_lab2\\TP_lab2.csproj",
         "projectName": "TP_lab2",
-        "projectPath": "C:\\Users\\lilia\\source\\repos\\TP_lab2\\TP_lab2\\TP_lab2.csproj",
+        "projectPath": "C:\\Users\\lilia\\TP_lab2\\TP_lab2\\TP_lab2.csproj",
         "packagesPath": "C:\\Users\\lilia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lilia\\source\\repos\\TP_lab2\\TP_lab2\\obj\\",
+        "outputPath": "C:\\Users\\lilia\\TP_lab2\\TP_lab2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
