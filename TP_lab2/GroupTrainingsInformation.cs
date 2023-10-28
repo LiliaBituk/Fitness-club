@@ -6,12 +6,12 @@
         public Dictionary<string, List<string>> timeOfGroupTrainings; 
 
 
-        public GroupTrainingsInformation()
+        public GroupTrainingsInformation(string trainingFilePath, string timeFilePath)
         {
             GroupTrainingsReader reader = new GroupTrainingsReader();
 
-            groupTrainingTypes = reader.LoadGroupTrainingsTypesFromFile("type_of_group_trainings.txt");
-            timeOfGroupTrainings = reader.LoadTimeOfGroupTrainingsFromFile("available_time.txt");
+            groupTrainingTypes = reader.LoadGroupTrainingsTypesFromFile(trainingFilePath);
+            timeOfGroupTrainings = reader.LoadTimeOfGroupTrainingsFromFile(timeFilePath);
         }
        
     }

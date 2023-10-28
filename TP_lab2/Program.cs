@@ -4,9 +4,7 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        Tariffs tariffs = new Tariffs();
-        tariffs.LoadTariffsFromFile(args[0]);
-        tariffs.LoadMonthsFroamFile(args[1]);
+        TariffsUserInteraction tariffs = new TariffsUserInteraction(args[0], args[1]);
 
         // Список для сбора пользовательской информации
         List<string> dataEnteredByUser = new List<string> { };
@@ -29,19 +27,19 @@ internal class Program
         string priceOfSelectedMonth = tariffs.GetPriceOfSelectedMonth(selectedTariff, selectedMonth).ToString();
         dataEnteredByUser.Add(priceOfSelectedMonth);
 
-        ExtraServices extraServices = new ExtraServices();
-        extraServices.LoadExtraServicesFromFile(args[2]);
+        BusinessLogic bl = new BusinessLogic();
+        ExtraServicesFlow extraServices = new ExtraServicesFlow();
 
         // Выбор групповых тренировок, если они доступны
-        if (extraServices.GroupTrainingsAreAvaliable(selectedTariff))
+        if (bl.GroupTrainingsAreAvaliable(selectedTariff, args[2]))
         {
-            dataEnteredByUser = extraServices.ChoosingGroupTrainings(dataEnteredByUser);
+            dataEnteredByUser = extraServices.ChoosingGroupTrainings(args[5], args[3], dataEnteredByUser);
         }
 
         // Выбор массажей, если они доступны
-        if (extraServices.MassageIsAvaliable(selectedTariff))
+        if (bl.MassageIsAvaliable(selectedTariff, args[2]))
         {
-            dataEnteredByUser = extraServices.ChoosingMassage(dataEnteredByUser);
+            dataEnteredByUser = extraServices.ChoosingMassage(args[4], dataEnteredByUser);
         }
 
         // Генерация билета из собранных данных

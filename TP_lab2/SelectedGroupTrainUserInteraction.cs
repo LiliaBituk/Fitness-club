@@ -2,8 +2,13 @@
 {
     internal class SelectedGroupTrainUserInteraction
     {
-        GroupTrainingsInformation GroupTrainingInfo = new GroupTrainingsInformation();
+        GroupTrainingsInformation GroupTrainingInfo;
         BusinessLogic businessLogic = new BusinessLogic();
+
+        public SelectedGroupTrainUserInteraction(string trainingFilePath, string timaFilePath)
+        {
+            GroupTrainingInfo = new GroupTrainingsInformation(trainingFilePath, timaFilePath);
+        }
 
         private string GetInput()
         {

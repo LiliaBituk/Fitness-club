@@ -4,10 +4,10 @@
     {
         public Dictionary<string, int[]> vacantPlacesOfSelectedGroupTraining;
 
-        public SelectedGroupTrainingInfo(string filePath) 
+        public SelectedGroupTrainingInfo(string selectedGroupTrainingFilePath) 
         {
-            GroupTrainingsReader reader = new GroupTrainingsReader();
-            vacantPlacesOfSelectedGroupTraining = reader.LoadVacantPlacesOfSelectedTrainingFromFile(filePath);
+            SelectedGroupTrainingReader reader = new SelectedGroupTrainingReader();
+            vacantPlacesOfSelectedGroupTraining = reader.LoadVacantPlacesOfSelectedTrainingFromFile(selectedGroupTrainingFilePath);
         }
     }
 }

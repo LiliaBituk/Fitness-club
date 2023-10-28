@@ -2,7 +2,12 @@
 {
     internal class MassageUserInteraction
     {
-        MassageInformation info = new MassageInformation();
+        MassageInformation info;
+
+        public MassageUserInteraction(string massageFilePath)
+        {
+            info = new MassageInformation(massageFilePath);
+        }
 
         private string GetInput()
         {

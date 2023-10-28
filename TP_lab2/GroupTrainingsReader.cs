@@ -2,9 +2,9 @@
 {
     internal class GroupTrainingsReader
     {
-        public Dictionary<string, List<string>> LoadGroupTrainingsTypesFromFile(string filePath)
+        public Dictionary<string, List<string>> LoadGroupTrainingsTypesFromFile(string groupTrainingsFilePath)
         {
-            string[] allLines = File.ReadAllLines(filePath);
+            string[] allLines = File.ReadAllLines(groupTrainingsFilePath);
             bool labels = true;
             Dictionary<string, List<string>> groupTrainingTypes = new Dictionary<string, List<string>> ();
 
@@ -30,9 +30,9 @@
             return groupTrainingTypes;
         }
 
-        public Dictionary<string, List<string>> LoadTimeOfGroupTrainingsFromFile(string filePath)
+        public Dictionary<string, List<string>> LoadTimeOfGroupTrainingsFromFile(string groupTrainingsTimeFilePath)
         {
-            string[] allLines = File.ReadAllLines(filePath);
+            string[] allLines = File.ReadAllLines(groupTrainingsTimeFilePath);
             Dictionary<string, List<string>> timeOfGroupTrainings = new Dictionary<string, List<string>>();
             bool labels = true;
 
@@ -57,32 +57,6 @@
             }
 
             return timeOfGroupTrainings;
-        }
-
-        public Dictionary<string, int[]> LoadVacantPlacesOfSelectedTrainingFromFile(string filePath)
-        {
-            string[] allLines = File.ReadAllLines(filePath);
-            Dictionary<string, int[]> vacantPlacesOfSelectedGroupTraining = new Dictionary<string, int[]>();
-            bool labels = true;
-
-            foreach (string i in allLines)
-            {
-                if (labels) { labels = false; }
-                else
-                {
-                    string[] line = i.Split(",");
-
-                    if (!vacantPlacesOfSelectedGroupTraining.ContainsKey(line[0]))
-                    {
-                        vacantPlacesOfSelectedGroupTraining[line[0]] = new int[2];
-                    }
-
-                    vacantPlacesOfSelectedGroupTraining[line[0]][0] = Convert.ToInt32(line[1]);
-                    vacantPlacesOfSelectedGroupTraining[line[0]][1] = Convert.ToInt32(line[2]);
-                }
-            }
-
-            return vacantPlacesOfSelectedGroupTraining;
         }
     }
 }

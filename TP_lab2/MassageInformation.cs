@@ -4,10 +4,10 @@
     {
         public List<string> massageArray;
 
-        public MassageInformation()
+        public MassageInformation(string massageFilePath)
         {
             MassageReader reader = new MassageReader();
-            massageArray = reader.LoadMassageTypesFromFile("massage.txt");
+            massageArray = reader.LoadMassageTypesFromFile(massageFilePath);
         }
     }
 }

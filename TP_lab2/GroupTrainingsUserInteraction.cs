@@ -2,7 +2,12 @@
 {
     internal class GroupTrainingsUserInteraction
     {
-        GroupTrainingsInformation info = new GroupTrainingsInformation();
+        public GroupTrainingsInformation info;
+
+        public GroupTrainingsUserInteraction(string groupTrainingFilePath, string timeFilePath)
+        {
+            info = new GroupTrainingsInformation(groupTrainingFilePath, timeFilePath);
+        }
 
         private string GetInput()
         {
@@ -55,28 +60,6 @@
             return timeOfSelectedTraining;
         }
 
-        //public string GetSelectedSubtypeInput(string selectedGroupTraining)
-        //{
-        //    string selectedSubtype;
-        //    do
-        //    {
-        //        SelectedGroupTrainingInfo selectedGroupTrainingInfo = new SelectedGroupTrainingInfo();
-        //        Console.Write("Введите интересующий вид тренировок: ");
-        //        selectedSubtype = GetInput();
-        //        if (info.groupTrainingTypes[selectedGroupTraining].Contains(selectedSubtype) && 
-        //            businessLogic.CheckVacantPlaceInGroupTraining(info.vacantPlacesOfSelectedGroupTraining, selectedSubtype))
-        //        {
-        //            Console.WriteLine();
-        //            return selectedSubtype;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("Выберите другой вид тренировки.");
-        //        }
-        //    }
-        //    while (true);
-        //}
-
         public void OutputTypeOfGroupTrainings()
         {
             Console.WriteLine("У нас представлены следующие виды тренировок:");
@@ -95,15 +78,5 @@
             }
             Console.WriteLine();
         }
-
-        //public void OutputVacantPlacesOfSelectedTraining(string selectedGroupTraining)
-        //{
-        //    Console.WriteLine($"Подвиды категории '{selectedGroupTraining}' (свободно/всего мест):");
-
-        //    foreach (string key in info.vacantPlacesOfSelectedGroupTraining.Keys)
-        //    {
-        //        Console.WriteLine($" - {key} {info.vacantPlacesOfSelectedGroupTraining[key][0]}/{info.vacantPlacesOfSelectedGroupTraining[key][1]}");
-        //    }
-        //}
     }
 }
