@@ -5,9 +5,10 @@
         GroupTrainingsInformation GroupTrainingInfo;
         BusinessLogic businessLogic = new BusinessLogic();
 
-        public SelectedGroupTrainUserInteraction(string trainingFilePath, string timaFilePath)
+        public SelectedGroupTrainUserInteraction(string groupTrainingsFilePath)//, string timaFilePath)
         {
-            GroupTrainingInfo = new GroupTrainingsInformation(trainingFilePath, timaFilePath);
+            GroupTrainingInfo = new GroupTrainingsInformation(groupTrainingsFilePath);//trainingFilePath, timaFilePath);
+            //businessLogic = new BusinessLogic(extraServiceFilePath);
         }
 
         private string GetInput()
@@ -27,7 +28,7 @@
                 SelectedGroupTrainingInfo selectedGroupTrainingInfo = new SelectedGroupTrainingInfo(selectedGroupTraining + ".txt");
                 Console.Write("Введите интересующий вид тренировок: ");
                 selectedSubtype = GetInput();
-                if (GroupTrainingInfo.groupTrainingTypes[selectedGroupTraining].Contains(selectedSubtype) &&
+                if (GroupTrainingInfo.typeOfGroupTrainings[selectedGroupTraining].Contains(selectedSubtype) &&
                     businessLogic.CheckVacantPlaceInGroupTraining(selectedGroupTrainingInfo.vacantPlacesOfSelectedGroupTraining, selectedSubtype))
                 {
                     Console.WriteLine();

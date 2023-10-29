@@ -1,12 +1,13 @@
-﻿namespace TP_lab2
+﻿
+namespace TP_lab2
 {
     internal class GroupTrainingsUserInteraction
     {
         public GroupTrainingsInformation info;
 
-        public GroupTrainingsUserInteraction(string groupTrainingFilePath, string timeFilePath)
+        public GroupTrainingsUserInteraction(string groupTrainingFilePath)
         {
-            info = new GroupTrainingsInformation(groupTrainingFilePath, timeFilePath);
+            info = new GroupTrainingsInformation(groupTrainingFilePath);
         }
 
         private string GetInput()
@@ -23,6 +24,7 @@
             string groupTrainingChoice;
             do
             {
+                
                 Console.Write("Желаете записаться на групповое занятие? (да/нет): ");
                 groupTrainingChoice = GetInput();
                 Console.WriteLine();
@@ -41,7 +43,7 @@
                 selectedGroupTraining = GetInput();
                 Console.WriteLine();
             }
-            while (!info.groupTrainingTypes.ContainsKey(selectedGroupTraining));
+            while (!info.typeOfGroupTrainings.ContainsKey(selectedGroupTraining));
 
             return selectedGroupTraining;
         }
@@ -63,7 +65,7 @@
         public void OutputTypeOfGroupTrainings()
         {
             Console.WriteLine("У нас представлены следующие виды тренировок:");
-            foreach (string key in info.groupTrainingTypes.Keys)
+            foreach (string key in info.typeOfGroupTrainings.Keys)
             {
                 Console.WriteLine($" - {key}");
             }

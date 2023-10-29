@@ -35,7 +35,7 @@
         public void OutputTypesOfMassage()
         {
             Console.WriteLine("У нас представленны следующие виды массажа:");
-            foreach (string item in info.massageArray) { Console.WriteLine($" - {item}"); }
+            foreach (string item in info.typeOfMassage) { Console.WriteLine($" - {item}"); }
         }
 
         public string GetSelectedMassageInput()
@@ -47,7 +47,7 @@
                 Console.Write("Введите интересующий тип массажа: ");
                 selectedTypeOfMassage = GetInput();
                 Console.WriteLine();
-                if (info.massageArray.Contains(selectedTypeOfMassage)) { return selectedTypeOfMassage; }
+                if (info.typeOfMassage.Contains(selectedTypeOfMassage)) { return selectedTypeOfMassage; }
             }
             while (true);
         }

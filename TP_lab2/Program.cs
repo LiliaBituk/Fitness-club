@@ -1,10 +1,12 @@
-﻿using TP_lab2;
+﻿using System.Text;
+using TP_lab2;
 
 internal class Program
 {
     public static void Main(string[] args)
     {
-        TariffsUserInteraction tariffs = new TariffsUserInteraction(args[0], args[1]);
+        Console.OutputEncoding = Encoding.UTF8;
+        TariffsUserInteraction tariffs = new TariffsUserInteraction(args[0]);
 
         // Список для сбора пользовательской информации
         List<string> dataEnteredByUser = new List<string> { };
@@ -31,15 +33,15 @@ internal class Program
         ExtraServicesFlow extraServices = new ExtraServicesFlow();
 
         // Выбор групповых тренировок, если они доступны
-        if (bl.GroupTrainingsAreAvaliable(selectedTariff, args[2]))
+        if (bl.GroupTrainingsAreAvaliable(selectedTariff, args[1]))
         {
-            dataEnteredByUser = extraServices.ChoosingGroupTrainings(args[5], args[3], dataEnteredByUser);
+            dataEnteredByUser = extraServices.ChoosingGroupTrainings(args[3], dataEnteredByUser);
         }
 
         // Выбор массажей, если они доступны
-        if (bl.MassageIsAvaliable(selectedTariff, args[2]))
+        if (bl.MassageIsAvaliable(selectedTariff, args[1]))
         {
-            dataEnteredByUser = extraServices.ChoosingMassage(args[4], dataEnteredByUser);
+            dataEnteredByUser = extraServices.ChoosingMassage(args[2], dataEnteredByUser);
         }
 
         // Генерация билета из собранных данных

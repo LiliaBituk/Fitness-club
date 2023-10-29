@@ -1,0 +1,20 @@
+[
+  {
+    "extraServices": {
+      "базовый": [
+        false,
+        false
+      ],
+
+      "продвинутый": [
+        true,
+        false
+      ],
+
+      "максимальный": [
+        true,
+        true
+      ]
+    }
+  }
+]

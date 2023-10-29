@@ -2,7 +2,7 @@
   "profiles": {
     "TP_lab2": {
       "commandName": "Project",
-      "commandLineArgs": "price_of_tarifs.txt months.txt extra_services.txt available_time.txt massage.txt type_of_group_trainings.txt"
+      "commandLineArgs": "tariffs.json extra_services.json massage.json group_trainings.json"
     }
   }
 }

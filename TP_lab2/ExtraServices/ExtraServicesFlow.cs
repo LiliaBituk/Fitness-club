@@ -2,9 +2,15 @@
 {
     internal class ExtraServicesFlow
     {
-        public List<string> ChoosingGroupTrainings(string trainingFilePath, string timeFilePath, List<string> dataEnteredByUser)
+        //public ExtraServicesInformation info;
+        //public ExtraServicesFlow(string extraServicesFilePath)
+        //{
+        //    info = new ExtraServicesInformation(extraServicesFilePath);
+        //}
+
+        public List<string> ChoosingGroupTrainings(string groupTrainingFilePath, List<string> dataEnteredByUser)
         {
-            GroupTrainingsUserInteraction userInteraction = new GroupTrainingsUserInteraction(trainingFilePath, timeFilePath);
+            GroupTrainingsUserInteraction userInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePath);//, timeFilePath);
 
             while (true)
             {
@@ -16,7 +22,7 @@
                     //Получить от пользователя тип групповой тренировки
                     string selectedGroupTraining = userInteraction.GetSelectedGroupTrainingInput();
 
-                    SelectedGroupTrainUserInteraction selectedGroupTrainInteraction = new SelectedGroupTrainUserInteraction(trainingFilePath, timeFilePath);
+                    SelectedGroupTrainUserInteraction selectedGroupTrainInteraction = new SelectedGroupTrainUserInteraction(groupTrainingFilePath);//, timeFilePath);
 
                     //Вывод доступного времени для выбранного типа тренировки
                     userInteraction.OutputTimeOfGroupTrainings(selectedGroupTraining);
