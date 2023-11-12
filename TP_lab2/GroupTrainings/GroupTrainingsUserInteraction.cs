@@ -3,11 +3,11 @@ namespace TP_lab2
 {
     internal class GroupTrainingsUserInteraction
     {
-        public GroupTrainingsInformation info;
+        public GroupTrainingsInformation groupTrainingInfo;
 
         public GroupTrainingsUserInteraction(string groupTrainingFilePath)
         {
-            info = new GroupTrainingsInformation(groupTrainingFilePath);
+            groupTrainingInfo = new GroupTrainingsInformation(groupTrainingFilePath);
         }
 
         private string GetInput()
@@ -43,7 +43,7 @@ namespace TP_lab2
                 selectedGroupTraining = GetInput();
                 Console.WriteLine();
             }
-            while (!info.typeOfGroupTrainings.ContainsKey(selectedGroupTraining));
+            while (!groupTrainingInfo.TypeOfGroupTrainings.ContainsKey(selectedGroupTraining));
 
             return selectedGroupTraining;
         }
@@ -57,7 +57,7 @@ namespace TP_lab2
                 timeOfSelectedTraining = GetInput();
                 Console.WriteLine();
             }
-            while (!info.timeOfGroupTrainings[selectedGroupTraining].Contains(timeOfSelectedTraining));
+            while (!groupTrainingInfo.TimeOfGroupTrainings[selectedGroupTraining].Contains(timeOfSelectedTraining));
 
             return timeOfSelectedTraining;
         }
@@ -65,7 +65,7 @@ namespace TP_lab2
         public void OutputTypeOfGroupTrainings()
         {
             Console.WriteLine("У нас представлены следующие виды тренировок:");
-            foreach (string key in info.typeOfGroupTrainings.Keys)
+            foreach (string key in groupTrainingInfo.TypeOfGroupTrainings.Keys)
             {
                 Console.WriteLine($" - {key}");
             }
@@ -74,7 +74,7 @@ namespace TP_lab2
         public void OutputTimeOfGroupTrainings(string selectedGroupTraining)
         {
             Console.WriteLine("Доступное время:");
-            foreach (string time in info.timeOfGroupTrainings[selectedGroupTraining])
+            foreach (string time in groupTrainingInfo.TimeOfGroupTrainings[selectedGroupTraining])
             {
                 Console.WriteLine($" - {time}");
             }

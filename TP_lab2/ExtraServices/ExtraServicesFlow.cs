@@ -2,56 +2,50 @@
 {
     internal class ExtraServicesFlow
     {
-        //public ExtraServicesInformation info;
-        //public ExtraServicesFlow(string extraServicesFilePath)
-        //{
-        //    info = new ExtraServicesInformation(extraServicesFilePath);
-        //}
+        SelectedGroupTrainingObject selectedGroupTrainingObject;
+        MassageObject massageObject;
 
-        public List<string> ChoosingGroupTrainings(string groupTrainingFilePath, List<string> dataEnteredByUser)
+        public ExtraServicesFlow(SelectedGroupTrainingObject selectedGroupTrainingObj, MassageObject massageObj)
         {
-            GroupTrainingsUserInteraction userInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePath);//, timeFilePath);
+            selectedGroupTrainingObject = selectedGroupTrainingObj;
+            massageObject = massageObj;
+        }
 
-            while (true)
+        public void ChoosingGroupTrainings(string groupTrainingFilePath, string vacantPlacesOfGroupTrainingFilePath)
+        {
+            //GroupTrainingsUserInteraction userInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePath);
+            //GroupTraining gt = new GroupTraining();
+            GroupTrainingsUserInteraction groupTrainingUserInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePath);//, vacantPlacesOfGroupTrainingFilePath, gt);
+            VacantPlacesGroupTrainingUserInteraction vacantPlacesUserInteraction = new VacantPlacesGroupTrainingUserInteraction(vacantPlacesOfGroupTrainingFilePath);
+            if (groupTrainingUserInteraction.GetNeedForGroupTraining())
             {
-                if (userInteraction.GetNeedForGroupTraining())
-                {
-                    //Вывод типов групповых тренировок
-                    userInteraction.OutputTypeOfGroupTrainings();
+                //Вывод типов групповых тренировок
+                groupTrainingUserInteraction.OutputTypeOfGroupTrainings();
 
-                    //Получить от пользователя тип групповой тренировки
-                    string selectedGroupTraining = userInteraction.GetSelectedGroupTrainingInput();
+                //Получить от пользователя тип групповой тренировки
+                string selectedGroupTraining = groupTrainingUserInteraction.GetSelectedGroupTrainingInput();
 
-                    SelectedGroupTrainUserInteraction selectedGroupTrainInteraction = new SelectedGroupTrainUserInteraction(groupTrainingFilePath);//, timeFilePath);
+                //SelectedGroupTrainUserInteraction selectedGroupTrainInteraction = new SelectedGroupTrainUserInteraction(groupTrainingFilePath);//, timeFilePath);
 
-                    //Вывод доступного времени для выбранного типа тренировки
-                    userInteraction.OutputTimeOfGroupTrainings(selectedGroupTraining);
+                //Вывод доступного времени для выбранного типа тренировки
+                groupTrainingUserInteraction.OutputTimeOfGroupTrainings(selectedGroupTraining);
 
-                    //Получить от пользователя времени тренирвки
-                    string timeOfSelectedTraining = userInteraction.GetSelectedTimeInput(selectedGroupTraining);
+                //Получить от пользователя времени тренирвки
+                string timeOfSelectedTraining = groupTrainingUserInteraction.GetSelectedTimeInput(selectedGroupTraining);
 
-                    //Вывод кол-во свободных мест для выбранной тренировки
-                    selectedGroupTrainInteraction.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);
+                //Вывод кол-во свободных мест для выбранной тренировки
+                //userInteraction.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);//, selectedSubtype);
+                vacantPlacesUserInteraction.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);
 
-                    //Получить от пользователя подтип групповой тренировки
-                    string selectedSubtype = selectedGroupTrainInteraction.GetSelectedSubtypeInput(selectedGroupTraining);
+                //Получить от пользователя подтип групповой тренировки
+                string selectedSubtype = vacantPlacesUserInteraction.GetSelectedSubtypeInput();
 
-                    dataEnteredByUser.Add(selectedSubtype);
-                    dataEnteredByUser.Add(timeOfSelectedTraining);
-
-                    return dataEnteredByUser;
-                }
-                else
-                {
-                    dataEnteredByUser.Add("-");
-                    dataEnteredByUser.Add("-");
-
-                    return dataEnteredByUser;
-                }
+                selectedGroupTrainingObject.SubtypeOfSelectedGroupTraining = selectedSubtype;
+                selectedGroupTrainingObject.TimeOfSelectedGroupTraining = timeOfSelectedTraining;
             }
         }
 
-        public List<string> ChoosingMassage(string massageFilePath, List<string> dataEnteredByUser)
+        public void ChoosingMassage(string massageFilePath)
         {
             MassageUserInteraction userInteraction = new MassageUserInteraction(massageFilePath);
 
@@ -61,11 +55,8 @@
                 userInteraction.OutputTypesOfMassage();
                 //Получить от пользователя выбранный вид массажа
                 string selectedTypeOfMassage = userInteraction.GetSelectedMassageInput();
-                dataEnteredByUser.Add(selectedTypeOfMassage);
+                massageObject.typeOfMassage = selectedTypeOfMassage;
             }
-            else { dataEnteredByUser.Add("-"); }
-
-            return dataEnteredByUser;
         }
     }
 }

@@ -4,9 +4,9 @@
     {
         private TariffsInformation info;
 
-        public TariffsUserInteraction(string tariffsFilePath)//, string monthsFilePath)
+        public TariffsUserInteraction(string tariffsFilePath)
         {
-            info = new TariffsInformation(tariffsFilePath);//, monthsFilePath);
+            info = new TariffsInformation(tariffsFilePath);
         }
 
         public void OutputTarifs()

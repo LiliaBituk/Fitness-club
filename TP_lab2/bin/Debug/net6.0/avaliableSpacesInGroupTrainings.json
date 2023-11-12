@@ -1,0 +1,45 @@
+[
+  {
+    "VacantPlacesInGroupTrainings": {
+      "аэробные": {
+        "aerobic": [ 19, 20 ],
+        "step_aerobic": [ 10, 15 ],
+        "kickboxing": [ 20, 30 ],
+        "aqua_fitness": [ 5, 5 ],
+        "cycling": [ 8, 10 ]
+      },
+
+      "низкоинтенсивные": {
+        "pilates": [ 20, 20 ],
+        "fitball": [ 15, 20 ],
+        "stretching": [ 7, 10 ],
+        "yoga": [ 10, 10 ],
+        "bodyflex": [ 7, 10 ]
+      },
+
+      "силовые": {
+        "body_sculpt": [ 15, 30 ],
+        "lower_body": [ 30, 30 ],
+        "upper_body": [ 27, 30 ],
+        "abs": [ 19, 30 ],
+        "body_pump": [ 13, 30 ]
+      },
+
+      "смешанные": {
+        "circuit_training": [ 5, 5 ],
+        "functional_training": [ 3, 5 ],
+        "TRX": [ 7, 8 ],
+        "CrossFit": [ 2, 10 ],
+        "full_body": [ 5, 5 ]
+      },
+
+      "танцевальные": {
+        "Zumba": [ 5, 10 ],
+        "Belly_Dance": [ 10, 10 ],
+        "Pole_Dance": [ 4, 8 ],
+        "Hip_hop": [ 20, 30 ],
+        "Twerk": [ 15, 15 ]
+      }
+    }
+  }
+]

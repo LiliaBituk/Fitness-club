@@ -16,12 +16,5 @@
                 months = info.months;
             }
         }
-
-        //public TariffsInformation(string tariffsFilePath, string monthsFilePath) 
-        //{
-        //    TariffsReader reader = new TariffsReader();
-        //    tariffsDictionary = reader.LoadTariffsFromFile(tariffsFilePath);
-        //    monthsList = reader.LoadMonthsFroamFile(monthsFilePath);
-        //}
     }
 }

@@ -1,54 +1,50 @@
-﻿using System.Text;
-using TP_lab2;
+﻿using TP_lab2;
 
 internal class Program
 {
     public static void Main(string[] args)
     {
-        Console.OutputEncoding = Encoding.UTF8;
-        TariffsUserInteraction tariffs = new TariffsUserInteraction(args[0]);
+        TariffsUserInteraction tariffUserInteraction = new TariffsUserInteraction(args[0]);
+        TariffObject tariffObject = new TariffObject();
+        MassageObject massageObject = new MassageObject();
 
-        // Список для сбора пользовательской информации
-        List<string> dataEnteredByUser = new List<string> { };
-
-        // Вывод приветствие и тарифы
-        tariffs.OutputTarifs();
+        // Вывод приветствия и тарифов
+        tariffUserInteraction.OutputTarifs();
 
         // Получение выбранного тарифа от пользователя
-        string selectedTariff = tariffs.GetSelectedTraifInput();
-        dataEnteredByUser.Add(selectedTariff);
+        string selectedTariff = tariffUserInteraction.GetSelectedTraifInput();
+        tariffObject.typeOfTariff = selectedTariff;
 
         // Вывод месяцев и цен для выбранного тарифа
-        tariffs.OutputMonthsAndPrices(selectedTariff);
+        tariffUserInteraction.OutputMonthsAndPrices(selectedTariff);
 
-        // Получение выбранного месяца от пользователя
-        string selectedMonth = tariffs.GetSelectedMonthInput();
-        dataEnteredByUser.Add(selectedMonth);
+        // Получение выбранной длительности (мес) от пользователя
+        string selectedDurationOfTariff = tariffUserInteraction.GetSelectedMonthInput();
+        tariffObject.durationOfTariff = selectedDurationOfTariff;
 
-        // Получение цены для выбранного тарифа и месяца
-        string priceOfSelectedMonth = tariffs.GetPriceOfSelectedMonth(selectedTariff, selectedMonth).ToString();
-        dataEnteredByUser.Add(priceOfSelectedMonth);
+        // Получение цены для выбранного тарифа в зависимости от длительнсти
+        string priceOfSelectedDuration = tariffUserInteraction.GetPriceOfSelectedMonth(selectedTariff, selectedDurationOfTariff).ToString();
+        tariffObject.priseOfTariff = priceOfSelectedDuration;
 
-        BusinessLogic bl = new BusinessLogic();
-        ExtraServicesFlow extraServices = new ExtraServicesFlow();
+        SelectedGroupTrainingObject selectedGroupTrainingObject = new SelectedGroupTrainingObject(args[4]);
+        BusinessLogic bl = new BusinessLogic(args[4]);
+        ExtraServicesFlow extraServices = new ExtraServicesFlow(selectedGroupTrainingObject, massageObject);
 
         // Выбор групповых тренировок, если они доступны
         if (bl.GroupTrainingsAreAvaliable(selectedTariff, args[1]))
         {
-            dataEnteredByUser = extraServices.ChoosingGroupTrainings(args[3], dataEnteredByUser);
+            extraServices.ChoosingGroupTrainings(args[3], args[4]);
         }
 
         // Выбор массажей, если они доступны
         if (bl.MassageIsAvaliable(selectedTariff, args[1]))
         {
-            dataEnteredByUser = extraServices.ChoosingMassage(args[2], dataEnteredByUser);
+            extraServices.ChoosingMassage(args[2]);
         }
 
         // Генерация билета из собранных данных
         Ticket ticket = new Ticket();
-        string[] data = ticket.GetArrayOfDefinedLength(dataEnteredByUser, 6);
-        ticket.TypeTicketToFile(data);
-        //}
-        //catch (Exception e) { Console.WriteLine($"Ошибка: {e.Message}"); }
+        GroupTraining groupTrain = new GroupTraining();
+        ticket.TypeTicketToFile(tariffObject,groupTrain, selectedGroupTrainingObject, massageObject);
     }
 }

@@ -15,13 +15,6 @@
                 typeOfMassage = massage.typeOfMassage;
             }
         }
-        //public List<string> massageArray;
-
-        //public MassageInformation(string massageFilePath)
-        //{
-        //    MassageReader reader = new MassageReader();
-        //    massageArray = reader.LoadMassageTypesFromFile(massageFilePath);
-        //}
     }
 }
 
