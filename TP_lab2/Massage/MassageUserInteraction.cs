@@ -2,11 +2,11 @@
 {
     internal class MassageUserInteraction
     {
-        MassageInformation info;
+        MassageInformation massageInfo;
 
-        public MassageUserInteraction(string massageFilePath)
+        public MassageUserInteraction(string[] massageFilePath)
         {
-            info = new MassageInformation(massageFilePath);
+            massageInfo = new MassageInformation(massageFilePath);
         }
 
         private string GetInput()
@@ -35,7 +35,22 @@
         public void OutputTypesOfMassage()
         {
             Console.WriteLine("У нас представленны следующие виды массажа:");
-            foreach (string item in info.typeOfMassage) { Console.WriteLine($" - {item}"); }
+            foreach (var item in massageInfo.massageList) { Console.WriteLine($" - {item.Type}"); }
+        }
+
+        public void OutputMastersOfMassage(string selectedTypeOfMassage)
+        {
+            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+
+            Console.WriteLine("У нас есть следующие мастера: ");
+            foreach (var item in massage.Master) { Console.WriteLine($" - {item}"); }
+        }
+
+        public void OutputTimesOfMassage(string selectedTypeOfMassage)
+        {
+            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+            Console.WriteLine("Доступно время: ");
+            foreach (var item in massage.Times) { Console.WriteLine($" - {item}"); }
         }
 
         public string GetSelectedMassageInput()
@@ -47,9 +62,42 @@
                 Console.Write("Введите интересующий тип массажа: ");
                 selectedTypeOfMassage = GetInput();
                 Console.WriteLine();
-                if (info.typeOfMassage.Contains(selectedTypeOfMassage)) { return selectedTypeOfMassage; }
             }
-            while (true);
+            while (!massageInfo.massageList.Any(massage => massage.Type.Equals(selectedTypeOfMassage, StringComparison.OrdinalIgnoreCase)));
+
+            return selectedTypeOfMassage;
+        }
+
+        public string GetMasterOfMassage(string selectedTypeOfMassage)
+        {
+            string selectedMasterOfMassage;
+            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+
+            do
+            {
+                Console.Write("Введите мастера: ");
+                selectedMasterOfMassage = GetInput();
+                Console.WriteLine();
+            }
+            while (!massage.Master.Contains(selectedMasterOfMassage));
+
+            return selectedMasterOfMassage;
+        }
+
+        public string GetTimeOfMassage(string selectedTypeOfMassage)
+        {
+            string selectedTimeOfMassage;
+            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+
+            do
+            {
+                Console.Write("Введите время: ");
+                selectedTimeOfMassage = GetInput();
+                Console.WriteLine();
+            }
+            while (!massage.Times.Contains(selectedTimeOfMassage));
+
+            return selectedTimeOfMassage;
         }
     }
 }

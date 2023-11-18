@@ -2,6 +2,10 @@
 {
     internal class MassageObject
     {
-        public string typeOfMassage { get; set; } = "-";
+        public string Type { get; set; } = "-";
+
+        public string Time { get; set; } = "-";
+
+        public string Master { get; set; } = "-";
     }
 }

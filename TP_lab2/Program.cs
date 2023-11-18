@@ -26,25 +26,27 @@ internal class Program
         string priceOfSelectedDuration = tariffUserInteraction.GetPriceOfSelectedMonth(selectedTariff, selectedDurationOfTariff).ToString();
         tariffObject.priseOfTariff = priceOfSelectedDuration;
 
-        SelectedGroupTrainingObject selectedGroupTrainingObject = new SelectedGroupTrainingObject(args[4]);
-        BusinessLogic bl = new BusinessLogic(args[4]);
+        SelectedGroupTrainingObject selectedGroupTrainingObject = new SelectedGroupTrainingObject();// args[4]);
+        BusinessLogic bl = new BusinessLogic();// selectedTariff, args[4]);
         ExtraServicesFlow extraServices = new ExtraServicesFlow(selectedGroupTrainingObject, massageObject);
 
         // Выбор групповых тренировок, если они доступны
         if (bl.GroupTrainingsAreAvaliable(selectedTariff, args[1]))
         {
-            extraServices.ChoosingGroupTrainings(args[3], args[4]);
+            string[] groupTrainingFilePaths = new string[] { args[3], args[4], args[5], args[6], args[7] };
+            extraServices.ChoosingGroupTrainings(groupTrainingFilePaths);
         }
 
         // Выбор массажей, если они доступны
         if (bl.MassageIsAvaliable(selectedTariff, args[1]))
         {
-            extraServices.ChoosingMassage(args[2]);
+            string[] massageFilePaths = new string[] { args[8], args[9], args[10] };
+            extraServices.ChoosingMassage(massageFilePaths);
         }
 
         // Генерация билета из собранных данных
         Ticket ticket = new Ticket();
-        GroupTraining groupTrain = new GroupTraining();
-        ticket.TypeTicketToFile(tariffObject,groupTrain, selectedGroupTrainingObject, massageObject);
+        GroupTraining groupTrain = new GroupTraining();// "strength.json");
+        ticket.TypeTicketToFile(tariffObject, selectedGroupTrainingObject, massageObject);
     }
 }

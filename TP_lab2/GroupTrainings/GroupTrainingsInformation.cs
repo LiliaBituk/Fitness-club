@@ -3,22 +3,16 @@ namespace TP_lab2
 {
     internal class GroupTrainingsInformation
     {
-        public Dictionary<string, List<string>> TypeOfGroupTrainings { get; set; }
-        public Dictionary<string, List<string>> TimeOfGroupTrainings { get; set; }
+        public List<GroupTraining> groupTrainingList = new List<GroupTraining>();
 
-        public GroupTrainingsInformation(string groupTrainingFilePath)
+        public GroupTrainingsInformation(string[] groupTrainingFilePaths)
         {
-            GroupTrainingsReader reader = new GroupTrainingsReader(groupTrainingFilePath);
-
-            if (reader.GroupTrainingInfo.Count > 0)
+            foreach (string file in groupTrainingFilePaths)
             {
-                var groupTraining = reader.GroupTrainingInfo[0];
-
-                TypeOfGroupTrainings = groupTraining.TypeOfGroupTrainings;
-                TimeOfGroupTrainings = groupTraining.TimeOfGroupTrainings;
+                GroupTrainingReader reader = new GroupTrainingReader();
+                GroupTraining groupTrainig = reader.Read(file);
+                groupTrainingList.Add(groupTrainig);
             }
-
-
         }
     }
 }

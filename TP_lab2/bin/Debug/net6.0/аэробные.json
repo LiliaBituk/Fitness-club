@@ -1,9 +1,0 @@
-{
-    "аэробные": {
-      "aerobic": [ 19, 20 ],
-      "step_aerobic": [ 10, 15 ],
-      "kickboxing": [ 20, 30 ],
-      "aqua_fitness": [ 5, 5 ],
-      "cycling": [ 8, 10 ]
-    }
-}

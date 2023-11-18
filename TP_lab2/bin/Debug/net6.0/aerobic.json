@@ -1,0 +1,11 @@
+{
+  "Type": "аэробные",
+  "Times": [ "10:00", "14:00", "19:00" ],
+  "VacantPlaces": {
+    "aerobic": [ 19, 20 ],
+    "step_aerobic": [ 10, 15 ],
+    "kickboxing": [ 20, 30 ],
+    "aqua_fitness": [ 5, 5 ],
+    "cycling": [ 8, 10 ]
+  }
+}

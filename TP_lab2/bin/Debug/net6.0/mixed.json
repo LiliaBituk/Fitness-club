@@ -1,0 +1,11 @@
+{
+  "Type": "смешанные",
+  "Times": [ "11:30", "13:00", "17:00" ],
+  "VacantPlaces": {
+    "circuit_training": [ 5, 5 ],
+    "functional_training": [ 3, 5 ],
+    "TRX": [ 7, 8 ],
+    "CrossFit": [ 2, 10 ],
+    "full_body": [ 5, 5 ]
+  }
+}

@@ -1,4 +1,5 @@
-﻿namespace TP_lab2
+﻿
+namespace TP_lab2
 {
     internal class ExtraServicesFlow
     {
@@ -11,12 +12,11 @@
             massageObject = massageObj;
         }
 
-        public void ChoosingGroupTrainings(string groupTrainingFilePath, string vacantPlacesOfGroupTrainingFilePath)
+        public void ChoosingGroupTrainings(string[] groupTrainingFilePaths)
         {
-            //GroupTrainingsUserInteraction userInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePath);
-            //GroupTraining gt = new GroupTraining();
-            GroupTrainingsUserInteraction groupTrainingUserInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePath);//, vacantPlacesOfGroupTrainingFilePath, gt);
-            VacantPlacesGroupTrainingUserInteraction vacantPlacesUserInteraction = new VacantPlacesGroupTrainingUserInteraction(vacantPlacesOfGroupTrainingFilePath);
+
+            GroupTrainingsUserInteraction groupTrainingUserInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePaths);
+            
             if (groupTrainingUserInteraction.GetNeedForGroupTraining())
             {
                 //Вывод типов групповых тренировок
@@ -25,8 +25,6 @@
                 //Получить от пользователя тип групповой тренировки
                 string selectedGroupTraining = groupTrainingUserInteraction.GetSelectedGroupTrainingInput();
 
-                //SelectedGroupTrainUserInteraction selectedGroupTrainInteraction = new SelectedGroupTrainUserInteraction(groupTrainingFilePath);//, timeFilePath);
-
                 //Вывод доступного времени для выбранного типа тренировки
                 groupTrainingUserInteraction.OutputTimeOfGroupTrainings(selectedGroupTraining);
 
@@ -34,18 +32,17 @@
                 string timeOfSelectedTraining = groupTrainingUserInteraction.GetSelectedTimeInput(selectedGroupTraining);
 
                 //Вывод кол-во свободных мест для выбранной тренировки
-                //userInteraction.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);//, selectedSubtype);
-                vacantPlacesUserInteraction.OutputVacantPlacesOfSelectedTraining(selectedGroupTraining);
+                groupTrainingUserInteraction.OutputVacantPlaces(selectedGroupTraining);
 
                 //Получить от пользователя подтип групповой тренировки
-                string selectedSubtype = vacantPlacesUserInteraction.GetSelectedSubtypeInput();
+                string selectedSubtype = groupTrainingUserInteraction.GetSelectedSubtypeInput(selectedGroupTraining);
 
-                selectedGroupTrainingObject.SubtypeOfSelectedGroupTraining = selectedSubtype;
-                selectedGroupTrainingObject.TimeOfSelectedGroupTraining = timeOfSelectedTraining;
+                selectedGroupTrainingObject.subtype = selectedSubtype;
+                selectedGroupTrainingObject.time = timeOfSelectedTraining;
             }
         }
 
-        public void ChoosingMassage(string massageFilePath)
+        public void ChoosingMassage(string[] massageFilePath)
         {
             MassageUserInteraction userInteraction = new MassageUserInteraction(massageFilePath);
 
@@ -53,9 +50,22 @@
             {
                 //Вывод видов массажа
                 userInteraction.OutputTypesOfMassage();
+
                 //Получить от пользователя выбранный вид массажа
                 string selectedTypeOfMassage = userInteraction.GetSelectedMassageInput();
-                massageObject.typeOfMassage = selectedTypeOfMassage;
+                massageObject.Type = selectedTypeOfMassage;
+
+                //Вывод доступных массажистов
+                userInteraction.OutputMastersOfMassage(selectedTypeOfMassage);
+
+                //Получить от пользователя выбранного массажиста
+                massageObject.Master = userInteraction.GetMasterOfMassage(selectedTypeOfMassage);
+
+                //Вывод доступного времени
+                userInteraction.OutputTimesOfMassage(selectedTypeOfMassage);
+
+                //Получить от пользователя выбранное время
+                massageObject.Time = userInteraction.GetTimeOfMassage(selectedTypeOfMassage);                
             }
         }
     }

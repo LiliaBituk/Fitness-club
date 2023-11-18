@@ -1,0 +1,11 @@
+{
+  "Type": "низкоинтенсивные",
+  "Times": [ "12:00", "17:00" ],
+  "VacantPlaces": {
+    "pilates": [ 10, 12 ],
+    "fitball": [ 7, 7 ],
+    "stretching": [ 27, 30 ],
+    "yoga": [ 19, 20 ],
+    "bodyflex": [ 15, 15 ]
+  }
+}
