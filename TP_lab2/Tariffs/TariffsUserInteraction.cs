@@ -2,27 +2,29 @@
 {
     internal class TariffsUserInteraction
     {
-        private TariffsInformation info;
+        public Dictionary<string, List<int>> tariffs;
+        public List<string> months;
 
-        public TariffsUserInteraction(string tariffsFilePath)
+        public TariffsUserInteraction(Dictionary<string, List<int>> tariffs, List<string> months)
         {
-            info = new TariffsInformation(tariffsFilePath);
+            this.tariffs = tariffs;
+            this.months = months;
         }
 
         public void OutputTarifs()
         {
             Console.WriteLine("Добро пожаловать в фитнес клуб!");
             Console.WriteLine("Наши тарифы:");
-            foreach (string key in info.tariffs.Keys) { Console.WriteLine($" - {key}"); }
+            foreach (string key in tariffs.Keys) { Console.WriteLine($" - {key}"); }
             Console.WriteLine();
         }
 
         public void OutputMonthsAndPrices(string selectedTariff)
         {
             Console.WriteLine($"Расценки тарифа '{selectedTariff}':");
-            for (int j = 0; j < info.months.Count; j++)
+            for (int j = 0; j < months.Count; j++)
             {
-                Console.WriteLine($" - {info.months[j]} мес {info.tariffs[selectedTariff][j]} руб");
+                Console.WriteLine($" - {months[j]} мес {tariffs[selectedTariff][j]} руб");
             }
         }
 
@@ -37,7 +39,7 @@
 
         public int GetPriceOfSelectedMonth(string selectedTariff, string selectedMonth)
         {
-            return info.tariffs[selectedTariff][info.months.FindIndex(month => month == selectedMonth)];
+            return tariffs[selectedTariff][months.FindIndex(month => month == selectedMonth)];
         }
 
         public string GetSelectedTraifInput()
@@ -49,7 +51,7 @@
                 selectedTarif = GetInput();
                 Console.WriteLine();
 
-                if (info.tariffs.ContainsKey(selectedTarif))
+                if (tariffs.ContainsKey(selectedTarif))
                 {
                     return selectedTarif;
                 }
@@ -66,7 +68,7 @@
                 selectedMonth = GetInput();
                 Console.WriteLine();
 
-                if (info.months.Contains(selectedMonth))
+                if (months.Contains(selectedMonth))
                 {
                     return selectedMonth;
                 }

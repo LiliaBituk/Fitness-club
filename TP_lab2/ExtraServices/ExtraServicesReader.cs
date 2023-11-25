@@ -4,16 +4,16 @@ namespace TP_lab2
 {
     internal class ExtraServicesReader
     {
-        public List<ExtraServicesInformation> ExtraServicesInfo { get; }
+        public List<ExtraService> ExtraServicesInfo { get; }
 
         public ExtraServicesReader(string extraServicesFilePath)
         {
-            ExtraServicesInfo = new List<ExtraServicesInformation>();
+            ExtraServicesInfo = new List<ExtraService>();
 
             if (File.Exists(extraServicesFilePath))
             {
                 string json = File.ReadAllText(extraServicesFilePath);
-                ExtraServicesInfo = JsonConvert.DeserializeObject<List<ExtraServicesInformation>>(json);
+                ExtraServicesInfo = JsonConvert.DeserializeObject<List<ExtraService>>(json);
             }
         }
     }

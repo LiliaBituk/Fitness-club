@@ -18,51 +18,22 @@ namespace TP_lab2
         //    vacantPlacesInGroupTrainingsInfo = vacantPlacesInGroupTrainingsReader.VacantPlacesData.FirstOrDefault();
         //}
 
-        public bool GroupTrainingsAreAvaliable(string selectedTariff, string extraServicesFilePath)
-        {
-            ExtraServicesInformation info = new ExtraServicesInformation(extraServicesFilePath);
-
-            return info.ExtraServices[selectedTariff][0];
-
-        }
-
-        public bool MassageIsAvaliable(string selectedTariff, string extraServicesFilePath)
-        {
-
-            ExtraServicesInformation info = new ExtraServicesInformation(extraServicesFilePath);
-
-            return info.ExtraServices[selectedTariff][1];
-
-        }
-
-        //public bool CheckStrengthIsAvailable(string selectedSubtype)
+        //public bool GroupTrainingsAreAvaliable(string selectedTariff, string extraServicesFilePath)
         //{
-        //    return vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Strength.ContainsKey(selectedSubtype)
-        //        && vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Strength[selectedSubtype][0] < vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Strength[selectedSubtype][1];
+        //    FitnessClub fitnessClub = new FitnessClub(extraServicesFilePath);
+        //    //ExtraServicesInformation info = new ExtraServicesInformation(extraServicesFilePath);
+
+        //    return fitnessClub.ExtraServices[selectedTariff][0];
+
         //}
 
-        //public bool CheckAerobicIsAvailable(string selectedSubtype)
+        //public bool MassageIsAvaliable(string selectedTariff, string extraServicesFilePath)
         //{
-        //    return vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Aerobics.ContainsKey(selectedSubtype)
-        //        && vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Aerobics[selectedSubtype][0] < vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Aerobics[selectedSubtype][1];
-        //}
 
-        //public bool CheckDanceIsAvailable(string selectedSubtype)
-        //{
-        //    return vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Dance.ContainsKey(selectedSubtype)
-        //        && vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Dance[selectedSubtype][0] < vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Dance[selectedSubtype][1];
-        //}
+        //    FitnessClub info = new FitnessClub(extraServicesFilePath);
 
-        //public bool CheckLowIntensityIsAvailable(string selectedSubtype)
-        //{
-        //    return vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.LowIntensity.ContainsKey(selectedSubtype)
-        //        && vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.LowIntensity[selectedSubtype][0] < vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.LowIntensity[selectedSubtype][1];
-        //}
+        //    return info.ExtraServices[selectedTariff][1];
 
-        //public bool CheckMixedIsAvailable(string selectedSubtype)
-        //{
-        //    return vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Mixed.ContainsKey(selectedSubtype)
-        //        && vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Mixed[selectedSubtype][0] < vacantPlacesInGroupTrainingsInfo.VacantPlacesInGroupTrainings.Mixed[selectedSubtype][1];
         //}
     }
 }

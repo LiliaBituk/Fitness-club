@@ -4,16 +4,16 @@ namespace TP_lab2
 {
     internal class TariffsReader
     {
-        public List<TariffsInformation> TariffsInfo;
+        public List<Tariff> TariffsInfo { get; private set; }
 
         public TariffsReader(string tariffsFilePath)
         {
-            TariffsInfo = new List<TariffsInformation>();
+            TariffsInfo = new List<Tariff>();
 
             if (File.Exists(tariffsFilePath))
             {
                 string json = File.ReadAllText(tariffsFilePath);
-                TariffsInfo = JsonConvert.DeserializeObject<List<TariffsInformation>>(json);
+                TariffsInfo = JsonConvert.DeserializeObject<List<Tariff>>(json);
             }
         }
     }

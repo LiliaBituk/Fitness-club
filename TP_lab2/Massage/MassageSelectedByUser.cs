@@ -1,6 +1,6 @@
 ﻿namespace TP_lab2
 {
-    internal class MassageObject
+    internal class MassageSelectedByUser
     {
         public string Type { get; set; } = "-";
 

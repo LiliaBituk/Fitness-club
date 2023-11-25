@@ -4,9 +4,12 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        TariffsUserInteraction tariffUserInteraction = new TariffsUserInteraction(args[0]);
-        TariffObject tariffObject = new TariffObject();
-        MassageObject massageObject = new MassageObject();
+        string[] groupTrainingFilePaths = new string[] { args[3], args[4], args[5], args[6], args[7] };
+        string[] massageFilePaths = new string[] { args[8], args[9], args[10] };
+
+        FitnessClub fitnessClub = new FitnessClub(args[0], args[1], groupTrainingFilePaths, massageFilePaths);
+        TariffsUserInteraction tariffUserInteraction = new TariffsUserInteraction(fitnessClub.tariffs, fitnessClub.months);
+        TariffSelectedByUser tariffObject = new TariffSelectedByUser();
 
         // Вывод приветствия и тарифов
         tariffUserInteraction.OutputTarifs();
@@ -26,27 +29,24 @@ internal class Program
         string priceOfSelectedDuration = tariffUserInteraction.GetPriceOfSelectedMonth(selectedTariff, selectedDurationOfTariff).ToString();
         tariffObject.priseOfTariff = priceOfSelectedDuration;
 
-        SelectedGroupTrainingObject selectedGroupTrainingObject = new SelectedGroupTrainingObject();// args[4]);
-        BusinessLogic bl = new BusinessLogic();// selectedTariff, args[4]);
+        GroupTrainingSelectedByUser selectedGroupTrainingObject = new GroupTrainingSelectedByUser();
+        MassageSelectedByUser massageObject = new MassageSelectedByUser();
         ExtraServicesFlow extraServices = new ExtraServicesFlow(selectedGroupTrainingObject, massageObject);
 
         // Выбор групповых тренировок, если они доступны
-        if (bl.GroupTrainingsAreAvaliable(selectedTariff, args[1]))
+        if (fitnessClub.GroupTrainingsAreAvaliable(selectedTariff))
         {
-            string[] groupTrainingFilePaths = new string[] { args[3], args[4], args[5], args[6], args[7] };
-            extraServices.ChoosingGroupTrainings(groupTrainingFilePaths);
+            extraServices.ChoosingGroupTrainings(fitnessClub.groupTrainingList);
         }
 
         // Выбор массажей, если они доступны
-        if (bl.MassageIsAvaliable(selectedTariff, args[1]))
+        if (fitnessClub.MassageIsAvaliable(selectedTariff))
         {
-            string[] massageFilePaths = new string[] { args[8], args[9], args[10] };
-            extraServices.ChoosingMassage(massageFilePaths);
+            extraServices.ChoosingMassage(fitnessClub.massageList);
         }
 
         // Генерация билета из собранных данных
-        Ticket ticket = new Ticket();
-        GroupTraining groupTrain = new GroupTraining();// "strength.json");
-        ticket.TypeTicketToFile(tariffObject, selectedGroupTrainingObject, massageObject);
+        fitnessClub.TypeTicketToFile(tariffObject, selectedGroupTrainingObject, massageObject);
+        Console.WriteLine("Спасибо за покупку! Чек отправлен на почту.");
     }
 }

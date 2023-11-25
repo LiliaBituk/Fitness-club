@@ -2,11 +2,11 @@
 {
     internal class MassageUserInteraction
     {
-        MassageInformation massageInfo;
+        public List<Massage> massageList;
 
-        public MassageUserInteraction(string[] massageFilePath)
+        public MassageUserInteraction(List<Massage> massageList)
         {
-            massageInfo = new MassageInformation(massageFilePath);
+            this.massageList = massageList;
         }
 
         private string GetInput()
@@ -35,12 +35,12 @@
         public void OutputTypesOfMassage()
         {
             Console.WriteLine("У нас представленны следующие виды массажа:");
-            foreach (var item in massageInfo.massageList) { Console.WriteLine($" - {item.Type}"); }
+            foreach (var item in massageList) { Console.WriteLine($" - {item.Type}"); }
         }
 
         public void OutputMastersOfMassage(string selectedTypeOfMassage)
         {
-            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+            Massage massage = massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
 
             Console.WriteLine("У нас есть следующие мастера: ");
             foreach (var item in massage.Master) { Console.WriteLine($" - {item}"); }
@@ -48,7 +48,7 @@
 
         public void OutputTimesOfMassage(string selectedTypeOfMassage)
         {
-            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+            Massage massage = massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
             Console.WriteLine("Доступно время: ");
             foreach (var item in massage.Times) { Console.WriteLine($" - {item}"); }
         }
@@ -63,7 +63,7 @@
                 selectedTypeOfMassage = GetInput();
                 Console.WriteLine();
             }
-            while (!massageInfo.massageList.Any(massage => massage.Type.Equals(selectedTypeOfMassage, StringComparison.OrdinalIgnoreCase)));
+            while (!massageList.Any(massage => massage.Type.Equals(selectedTypeOfMassage, StringComparison.OrdinalIgnoreCase)));
 
             return selectedTypeOfMassage;
         }
@@ -71,7 +71,7 @@
         public string GetMasterOfMassage(string selectedTypeOfMassage)
         {
             string selectedMasterOfMassage;
-            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+            Massage massage = massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
 
             do
             {
@@ -87,7 +87,7 @@
         public string GetTimeOfMassage(string selectedTypeOfMassage)
         {
             string selectedTimeOfMassage;
-            Massage massage = massageInfo.massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
+            Massage massage = massageList.FirstOrDefault(massage => massage.Type.Equals(selectedTypeOfMassage));
 
             do
             {

@@ -3,19 +3,19 @@ namespace TP_lab2
 {
     internal class ExtraServicesFlow
     {
-        SelectedGroupTrainingObject selectedGroupTrainingObject;
-        MassageObject massageObject;
+        GroupTrainingSelectedByUser selectedGroupTrainingObject;
+        MassageSelectedByUser massageObject;
 
-        public ExtraServicesFlow(SelectedGroupTrainingObject selectedGroupTrainingObj, MassageObject massageObj)
+        public ExtraServicesFlow(GroupTrainingSelectedByUser selectedGroupTrainingObj, MassageSelectedByUser massageObj)
         {
             selectedGroupTrainingObject = selectedGroupTrainingObj;
             massageObject = massageObj;
         }
 
-        public void ChoosingGroupTrainings(string[] groupTrainingFilePaths)
+        public void ChoosingGroupTrainings(List<GroupTraining> groupTrainingList)
         {
 
-            GroupTrainingsUserInteraction groupTrainingUserInteraction = new GroupTrainingsUserInteraction(groupTrainingFilePaths);
+            GroupTrainingsUserInteraction groupTrainingUserInteraction = new GroupTrainingsUserInteraction(groupTrainingList);
             
             if (groupTrainingUserInteraction.GetNeedForGroupTraining())
             {
@@ -42,9 +42,9 @@ namespace TP_lab2
             }
         }
 
-        public void ChoosingMassage(string[] massageFilePath)
+        public void ChoosingMassage(List<Massage> massageList)
         {
-            MassageUserInteraction userInteraction = new MassageUserInteraction(massageFilePath);
+            MassageUserInteraction userInteraction = new MassageUserInteraction(massageList);
 
             if (userInteraction.GetNeedForMassage())
             {

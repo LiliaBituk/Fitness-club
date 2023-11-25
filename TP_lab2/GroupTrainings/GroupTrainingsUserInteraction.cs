@@ -3,15 +3,14 @@ namespace TP_lab2
 {
     internal class GroupTrainingsUserInteraction
     {
-        private GroupTrainingsInformation groupTrainingInfo;
+        List<GroupTraining> groupTrainingList;
 
         private string selectedTypeOfTraining;
 
 
-        public GroupTrainingsUserInteraction(string[] groupTrainingFilePaths)
+        public GroupTrainingsUserInteraction(List<GroupTraining> groupTrainingList)
         {
-            groupTrainingInfo = new GroupTrainingsInformation(groupTrainingFilePaths);
-            
+            this.groupTrainingList = groupTrainingList;
         }
 
         private string GetInput()
@@ -28,7 +27,7 @@ namespace TP_lab2
             string groupTrainingChoice;
             do
             {
-                
+
                 Console.Write("Желаете записаться на групповое занятие? (да/нет): ");
                 groupTrainingChoice = GetInput();
                 Console.WriteLine();
@@ -46,7 +45,7 @@ namespace TP_lab2
                 selectedTypeOfTraining = GetInput();
                 Console.WriteLine();
             }
-            while (!groupTrainingInfo.groupTrainingList.Any(training => training.Type.Equals(selectedTypeOfTraining, StringComparison.OrdinalIgnoreCase)));
+            while (!groupTrainingList.Any(training => training.Type.Equals(selectedTypeOfTraining, StringComparison.OrdinalIgnoreCase)));
 
             return selectedTypeOfTraining;
         }
@@ -54,7 +53,7 @@ namespace TP_lab2
         public string GetSelectedTimeInput(string selectedGroupTraining)
         {
             string timeOfSelectedTraining;
-            GroupTraining groupTraining = groupTrainingInfo.groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
+            GroupTraining groupTraining = groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
 
             do
             {
@@ -62,23 +61,53 @@ namespace TP_lab2
                 timeOfSelectedTraining = GetInput();
                 Console.WriteLine();
             }
-            while(!groupTraining.Times.Contains(timeOfSelectedTraining));
+            while (!groupTraining.Times.Contains(timeOfSelectedTraining));
 
             return timeOfSelectedTraining;
+        }
+
+        private bool SelectedSubtypeIsExist(string selectedSubtype, GroupTraining groupTraining)
+        {
+            if (groupTraining.VacantPlaces.ContainsKey(selectedSubtype))
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Выбранная тренировка не содержит подтипа {selectedSubtype}.");
+                return false;
+            }
+        }
+
+        private bool SelectedSubtypeHasAvailablePlaces(string selectedSubtype, GroupTraining groupTraining)
+        {
+            if (groupTraining.VacantPlaces[selectedSubtype][0] < groupTraining.VacantPlaces[selectedSubtype][1])
+            {
+                return true;
+            }
+            else 
+            {
+                Console.WriteLine($"Недостаточно свободных мест для подтипа {selectedSubtype}.");
+                return false; 
+            }
         }
 
         public string GetSelectedSubtypeInput(string selectedGroupTraining)
         {
             string selectedSubtype;
-            GroupTraining groupTraining = groupTrainingInfo.groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
+            GroupTraining groupTraining = groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
 
             do
             {
-                Console.Write("Введите интересующий тип тренировки: ");
-                selectedSubtype = GetInput();
-                Console.WriteLine();
+                do
+                {
+                    Console.Write("Введите интересующий тип тренировки: ");
+                    selectedSubtype = GetInput();
+                    Console.WriteLine();
+                }
+                while (!SelectedSubtypeIsExist(selectedSubtype, groupTraining));
             }
-            while (!(groupTraining.VacantPlaces[selectedSubtype][0] < groupTraining.VacantPlaces[selectedSubtype][1]));
+            while (!SelectedSubtypeHasAvailablePlaces(selectedSubtype, groupTraining));
 
             return selectedSubtype;
         }
@@ -86,7 +115,7 @@ namespace TP_lab2
         public void OutputTypeOfGroupTrainings()
         {
             Console.WriteLine("У нас представлены следующие виды тренировок:");
-            foreach (var training in groupTrainingInfo.groupTrainingList)
+            foreach (var training in groupTrainingList)
             {
                 Console.WriteLine($" - {training.Type}");
             }
@@ -96,7 +125,7 @@ namespace TP_lab2
         {
             Console.WriteLine($"Доступное время для тренировки типа '{selectedGroupTraining}':");
 
-            GroupTraining groupTraining = groupTrainingInfo.groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
+            GroupTraining groupTraining = groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
 
             foreach (string time in groupTraining.Times)
             {
@@ -109,7 +138,7 @@ namespace TP_lab2
         {
             Console.WriteLine($"Подвиды категории '{selectedGroupTraining}' (свободно/всего мест):");
 
-            GroupTraining groupTraining = groupTrainingInfo.groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
+            GroupTraining groupTraining = groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
 
 
             foreach (var entry in groupTraining.VacantPlaces)

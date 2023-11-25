@@ -1,6 +1,6 @@
 ﻿namespace TP_lab2
 {
-    internal class TariffObject
+    internal class TariffSelectedByUser
     {
         public string typeOfTariff { get; set; }
         public string priseOfTariff { get; set; }
