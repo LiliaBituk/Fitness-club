@@ -9,39 +9,21 @@ internal class Program
 
         FitnessClub fitnessClub = new FitnessClub();
 
-        // read info about tariffs
+        // Read info about tariffs
         TariffsReader readerTariffs = new TariffsReader(args[0]);
+        readerTariffs.ReadTariffs(fitnessClub);
 
-        if (readerTariffs.TariffsInfo.Count > 0)
-        {
-            var info = readerTariffs.TariffsInfo[0];
-            fitnessClub.tariffs = info.tariffs;
-            fitnessClub.months = info.months;
-        }
-
-        // read info about extra services
+        // Read info about extra services
         ExtraServicesReader readerExtraServices = new ExtraServicesReader(args[1]);
-        if (readerExtraServices.ExtraServicesInfo.Count > 0)
-        {
-            var info = readerExtraServices.ExtraServicesInfo[0];
-            fitnessClub.ExtraServices = info.ExtraServices;
-        }
+        readerExtraServices.ReadExtraServices(fitnessClub);
 
-        // read info about group trainings
-        foreach (string file in groupTrainingFilePaths)
-        {
-            GroupTrainingReader reader = new GroupTrainingReader();
-            GroupTraining groupTrainig = reader.Read(file);
-            fitnessClub.groupTrainingList.Add(groupTrainig);
-        }
-
-        // read info about massages
-        foreach (string file in massageFilePaths)
-        {
-            MassageReader readerMassage = new MassageReader();
-            Massage massage = readerMassage.Read(file);
-            fitnessClub.massageList.Add(massage);
-        }
+        // Read info about group trainings
+        GroupTrainingReader groupTrainingReader = new GroupTrainingReader();
+        groupTrainingReader.ReadGroupTrainings(groupTrainingFilePaths, fitnessClub);
+ 
+        // Read info about massages
+        MassageReader massageReader = new MassageReader();
+        massageReader.ReadMassage(massageFilePaths, fitnessClub);
 
         TariffsUserInteraction tariffUserInteraction = new TariffsUserInteraction(fitnessClub.tariffs, fitnessClub.months);
         TariffSelectedByUser tariffObject = new TariffSelectedByUser();

@@ -16,5 +16,15 @@ namespace TP_lab2
                 TariffsInfo = JsonConvert.DeserializeObject<List<Tariff>>(json);
             }
         }
+
+        public void ReadTariffs(FitnessClub fitnessClub)
+        {
+            if (TariffsInfo.Count > 0)
+            {
+                var info = TariffsInfo[0];
+                fitnessClub.tariffs = info.tariffs;
+                fitnessClub.months = info.months;
+            }
+        }
     }
 }

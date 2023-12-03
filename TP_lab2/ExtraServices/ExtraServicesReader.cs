@@ -16,5 +16,14 @@ namespace TP_lab2
                 ExtraServicesInfo = JsonConvert.DeserializeObject<List<ExtraService>>(json);
             }
         }
+
+        public void ReadExtraServices(FitnessClub fitnessClub)
+        {
+            if (ExtraServicesInfo.Count > 0)
+            {
+                var info = ExtraServicesInfo[0];
+                fitnessClub.ExtraServices = info.ExtraServices;
+            }
+        }
     }
 }

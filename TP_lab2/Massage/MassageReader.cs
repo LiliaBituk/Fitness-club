@@ -16,5 +16,14 @@ namespace TP_lab2
 
             return new Massage();
         }
+
+        public void ReadMassage(string[] massageFilePaths, FitnessClub fitnessClub)
+        {
+            foreach (string file in massageFilePaths)
+            {
+                Massage massage = Read(file);
+                fitnessClub.massageList.Add(massage);
+            }
+        }
     }
 }

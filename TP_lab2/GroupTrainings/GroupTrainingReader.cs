@@ -16,5 +16,15 @@ namespace TP_lab2
 
             return new GroupTraining();
         }
+
+        public void ReadGroupTrainings(string[] groupTrainingFilePaths, FitnessClub fitnessClub)
+        {
+            foreach (string file in groupTrainingFilePaths)
+            {
+                //GroupTrainingReader reader = new GroupTrainingReader();
+                GroupTraining groupTrainig = Read(file);
+                fitnessClub.groupTrainingList.Add(groupTrainig);
+            }
+        }
     }
 }
