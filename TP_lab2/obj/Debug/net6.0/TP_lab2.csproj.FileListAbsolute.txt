@@ -45,3 +45,12 @@ C:\Users\lilia\TP_lab2\TP_lab2\obj\Debug\net6.0\TP_lab2.genruntimeconfig.cache
 C:\Users\lilia\TP_lab2\TP_lab2\obj\Debug\net6.0\ref\TP_lab2.dll
 C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\lilia\TP_lab2\TP_lab2\obj\Debug\net6.0\TP_lab2.csproj.CopyComplete
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\DataAccess2.deps.json
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\DataAccess2.runtimeconfig.json
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\DataAccess2.exe
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\DataAccess2.dll
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\UserInteraction.dll
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\DataAccess2.pdb
+C:\Users\lilia\TP_lab2\TP_lab2\bin\Debug\net6.0\UserInteraction.pdb

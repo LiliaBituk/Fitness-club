@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "UserInteraction/1.0.0": {
+        "dependencies": {
+          "BusinessLogic": "1.0.0"
+        },
+        "runtime": {
+          "UserInteraction.dll": {}
+        }
+      },
+      "BusinessLogic/1.0.0": {
+        "runtime": {
+          "BusinessLogic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UserInteraction/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

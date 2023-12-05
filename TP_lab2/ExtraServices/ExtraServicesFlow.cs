@@ -1,7 +1,8 @@
-﻿
+﻿using BusinessLogic;
+
 namespace TP_lab2
 {
-    internal class ExtraServicesFlow
+    public class ExtraServicesFlow
     {
         GroupTrainingSelectedByUser selectedGroupTrainingObject;
         MassageSelectedByUser massageObject;
@@ -16,7 +17,7 @@ namespace TP_lab2
         {
 
             GroupTrainingsUserInteraction groupTrainingUserInteraction = new GroupTrainingsUserInteraction(groupTrainingList);
-            
+
             if (groupTrainingUserInteraction.GetNeedForGroupTraining())
             {
                 //Вывод типов групповых тренировок
@@ -65,7 +66,7 @@ namespace TP_lab2
                 userInteraction.OutputTimesOfMassage(selectedTypeOfMassage);
 
                 //Получить от пользователя выбранное время
-                massageObject.Time = userInteraction.GetTimeOfMassage(selectedTypeOfMassage);                
+                massageObject.Time = userInteraction.GetTimeOfMassage(selectedTypeOfMassage);
             }
         }
     }

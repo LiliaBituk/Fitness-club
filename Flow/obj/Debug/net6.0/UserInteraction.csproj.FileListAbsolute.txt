@@ -1,0 +1,15 @@
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.csproj.AssemblyReference.cache
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.AssemblyInfoInputs.cache
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.AssemblyInfo.cs
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.csproj.CoreCompileInputs.cache
+C:\Users\lilia\TP_lab2\Flow\bin\Debug\net6.0\UserInteraction.deps.json
+C:\Users\lilia\TP_lab2\Flow\bin\Debug\net6.0\UserInteraction.dll
+C:\Users\lilia\TP_lab2\Flow\bin\Debug\net6.0\UserInteraction.pdb
+C:\Users\lilia\TP_lab2\Flow\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\lilia\TP_lab2\Flow\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.csproj.CopyComplete
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.dll
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\refint\UserInteraction.dll
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\UserInteraction.pdb
+C:\Users\lilia\TP_lab2\Flow\obj\Debug\net6.0\ref\UserInteraction.dll

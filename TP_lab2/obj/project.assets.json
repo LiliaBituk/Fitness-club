@@ -14,6 +14,43 @@
             "related": ".xml"
           }
         }
+      },
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
+      "DataAccess2/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BusinessLogic": "1.0.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "bin/placeholder/DataAccess2.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccess2.dll": {}
+        }
+      },
+      "UserInteraction/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BusinessLogic": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UserInteraction.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UserInteraction.dll": {}
+        }
       }
     }
   },
@@ -47,11 +84,29 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+    },
+    "DataAccess2/1.0.0": {
+      "type": "project",
+      "path": "../DataAccess2/DataAccess2.csproj",
+      "msbuildProject": "../DataAccess2/DataAccess2.csproj"
+    },
+    "UserInteraction/1.0.0": {
+      "type": "project",
+      "path": "../Flow/UserInteraction.csproj",
+      "msbuildProject": "../Flow/UserInteraction.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Newtonsoft.Json >= 13.0.3"
+      "BusinessLogic >= 1.0.0",
+      "DataAccess2 >= 1.0.0",
+      "Newtonsoft.Json >= 13.0.3",
+      "UserInteraction >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -85,7 +140,17 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\lilia\\TP_lab2\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\lilia\\TP_lab2\\BusinessLogic\\BusinessLogic.csproj"
+            },
+            "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj": {
+              "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj"
+            },
+            "C:\\Users\\lilia\\TP_lab2\\Flow\\UserInteraction.csproj": {
+              "projectPath": "C:\\Users\\lilia\\TP_lab2\\Flow\\UserInteraction.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

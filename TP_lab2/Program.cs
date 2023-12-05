@@ -1,4 +1,6 @@
 ﻿using TP_lab2;
+using BusinessLogic;
+using DataAccess;
 
 internal class Program
 {
@@ -20,7 +22,7 @@ internal class Program
         // Read info about group trainings
         GroupTrainingReader groupTrainingReader = new GroupTrainingReader();
         groupTrainingReader.ReadGroupTrainings(groupTrainingFilePaths, fitnessClub);
- 
+
         // Read info about massages
         MassageReader massageReader = new MassageReader();
         massageReader.ReadMassage(massageFilePaths, fitnessClub);
