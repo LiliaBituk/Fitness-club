@@ -5,7 +5,7 @@ namespace DataAccess
 {
     public class MassageReader
     {
-        public Massage Read(string massageFilePath)
+        private Massage Read(string massageFilePath)
         {
             if (File.Exists(massageFilePath))
             {

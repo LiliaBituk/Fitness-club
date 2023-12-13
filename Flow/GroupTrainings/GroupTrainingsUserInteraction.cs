@@ -82,7 +82,8 @@ namespace TP_lab2
 
         private bool SelectedSubtypeHasAvailablePlaces(string selectedSubtype, GroupTraining groupTraining)
         {
-            if (groupTraining.VacantPlaces[selectedSubtype][0] < groupTraining.VacantPlaces[selectedSubtype][1])
+            //if (groupTraining.VacantPlaces[selectedSubtype][0] < groupTraining.VacantPlaces[selectedSubtype][1])
+            if (groupTraining.selectedGroupTrainingIsAvailable(selectedSubtype))
             {
                 return true;
             }
@@ -140,7 +141,6 @@ namespace TP_lab2
             Console.WriteLine($"Подвиды категории '{selectedGroupTraining}' (свободно/всего мест):");
 
             GroupTraining groupTraining = groupTrainingList.FirstOrDefault(training => training.Type.Equals(selectedGroupTraining));
-
 
             foreach (var entry in groupTraining.VacantPlaces)
             {

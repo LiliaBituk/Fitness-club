@@ -20,6 +20,6 @@ namespace BusinessLogic
         public bool MassageIsAvaliable(string selectedTariff)
         {
             return ExtraServices[selectedTariff][1];
-        }
+        }        
     }
 }
