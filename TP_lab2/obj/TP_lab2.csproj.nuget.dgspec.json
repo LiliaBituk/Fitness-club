@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj": {
+    "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj",
-        "projectName": "DataAccess2",
-        "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj",
+        "projectUniqueName": "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj",
+        "projectName": "DataAccess",
+        "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\lilia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\obj\\",
+        "outputPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -226,8 +226,8 @@
               "C:\\Users\\lilia\\TP_lab2\\BusinessLogic\\BusinessLogic.csproj": {
                 "projectPath": "C:\\Users\\lilia\\TP_lab2\\BusinessLogic\\BusinessLogic.csproj"
               },
-              "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj": {
-                "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj"
+              "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj"
               },
               "C:\\Users\\lilia\\TP_lab2\\Flow\\UserInteraction.csproj": {
                 "projectPath": "C:\\Users\\lilia\\TP_lab2\\Flow\\UserInteraction.csproj"

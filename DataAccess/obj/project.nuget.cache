@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YeGLqWf7gq3R6x/hS2z948CP4apw5c4WpfShf3VazDbQ8USLWQeYjhfdbVC3VqJe+RjFzlqFrxFgxrWYh970rA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lilia\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

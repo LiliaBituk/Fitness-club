@@ -4,6 +4,10 @@ namespace TP_lab2
 {
     public class GroupTrainingsUserInteraction
     {
+        /// <summary>
+        /// Класс для взиамодействия с пользователем в контексте групповой тренировки
+        /// </summary>
+
         List<GroupTraining> groupTrainingList;
 
         private string selectedTypeOfTraining;
@@ -82,7 +86,6 @@ namespace TP_lab2
 
         private bool SelectedSubtypeHasAvailablePlaces(string selectedSubtype, GroupTraining groupTraining)
         {
-            //if (groupTraining.VacantPlaces[selectedSubtype][0] < groupTraining.VacantPlaces[selectedSubtype][1])
             if (groupTraining.selectedGroupTrainingIsAvailable(selectedSubtype))
             {
                 return true;

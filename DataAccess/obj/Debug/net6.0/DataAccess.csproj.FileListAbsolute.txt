@@ -1,0 +1,15 @@
+C:\Users\lilia\TP_lab2\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\lilia\TP_lab2\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\lilia\TP_lab2\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\lilia\TP_lab2\DataAccess\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\lilia\TP_lab2\DataAccess\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\lilia\TP_lab2\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

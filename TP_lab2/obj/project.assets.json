@@ -25,7 +25,7 @@
           "bin/placeholder/BusinessLogic.dll": {}
         }
       },
-      "DataAccess2/1.0.0": {
+      "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -33,10 +33,10 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
-          "bin/placeholder/DataAccess2.dll": {}
+          "bin/placeholder/DataAccess.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataAccess2.dll": {}
+          "bin/placeholder/DataAccess.dll": {}
         }
       },
       "UserInteraction/1.0.0": {
@@ -90,10 +90,10 @@
       "path": "../BusinessLogic/BusinessLogic.csproj",
       "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
     },
-    "DataAccess2/1.0.0": {
+    "DataAccess/1.0.0": {
       "type": "project",
-      "path": "../DataAccess2/DataAccess2.csproj",
-      "msbuildProject": "../DataAccess2/DataAccess2.csproj"
+      "path": "../DataAccess/DataAccess.csproj",
+      "msbuildProject": "../DataAccess/DataAccess.csproj"
     },
     "UserInteraction/1.0.0": {
       "type": "project",
@@ -104,7 +104,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BusinessLogic >= 1.0.0",
-      "DataAccess2 >= 1.0.0",
+      "DataAccess >= 1.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "UserInteraction >= 1.0.0"
     ]
@@ -144,8 +144,8 @@
             "C:\\Users\\lilia\\TP_lab2\\BusinessLogic\\BusinessLogic.csproj": {
               "projectPath": "C:\\Users\\lilia\\TP_lab2\\BusinessLogic\\BusinessLogic.csproj"
             },
-            "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj": {
-              "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess2\\DataAccess2.csproj"
+            "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\lilia\\TP_lab2\\DataAccess\\DataAccess.csproj"
             },
             "C:\\Users\\lilia\\TP_lab2\\Flow\\UserInteraction.csproj": {
               "projectPath": "C:\\Users\\lilia\\TP_lab2\\Flow\\UserInteraction.csproj"

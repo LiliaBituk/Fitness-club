@@ -65,7 +65,7 @@ namespace TP_lab2
                 selectedTypeOfMassage = GetInput();
                 Console.WriteLine();
             }
-            while (!massageList.Any(massage => massage.Type.Equals(selectedTypeOfMassage, StringComparison.OrdinalIgnoreCase)));
+            while (!massageList.Any(massage => massage.Type.Equals(selectedTypeOfMassage)));
 
             return selectedTypeOfMassage;
         }

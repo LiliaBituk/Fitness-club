@@ -9,7 +9,7 @@
       "TP_lab2/1.0.0": {
         "dependencies": {
           "BusinessLogic": "1.0.0",
-          "DataAccess2": "1.0.0",
+          "DataAccess": "1.0.0",
           "Newtonsoft.Json": "13.0.3",
           "UserInteraction": "1.0.0"
         },
@@ -30,13 +30,13 @@
           "BusinessLogic.dll": {}
         }
       },
-      "DataAccess2/1.0.0": {
+      "DataAccess/1.0.0": {
         "dependencies": {
           "BusinessLogic": "1.0.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "DataAccess2.dll": {}
+          "DataAccess.dll": {}
         }
       },
       "UserInteraction/1.0.0": {
@@ -67,7 +67,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DataAccess2/1.0.0": {
+    "DataAccess/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

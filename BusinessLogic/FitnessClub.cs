@@ -4,6 +4,7 @@ namespace BusinessLogic
     public class FitnessClub
     {
         public Dictionary<string, List<int>> tariffs;
+
         public List<string> months;
 
         public Dictionary<string, List<bool>> ExtraServices;
